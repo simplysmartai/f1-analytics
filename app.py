@@ -131,6 +131,7 @@ if schedule is not None:
             for _, row in available_races.iterrows()
         }
         
+        # REORGANIZED: Grand Prix selector (moved down after Season)
         selected_race = st.selectbox("Grand Prix", options=list(race_options.keys()))
         round_number = race_options[selected_race]
 

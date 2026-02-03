@@ -125,7 +125,7 @@ if schedule is not None:
     try:
         with st.spinner(f"Loading {session_type} data..."):
             logger.info(f"Loading {session_type} session for R{round_number}/{year}")
-            session = data_service.get_session(year, int(round_number), settings.SESSION_TYPES[session_type])
+            session = data_service.get_session(year, int(round_number), session_type)
             logger.info(f"Session loaded successfully")
     except Exception as e:
         logger.error(f"Failed to load session: {e}")

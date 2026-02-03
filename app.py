@@ -4,6 +4,7 @@ Built on top of Tom Shaw's F1 Race Replay project
 https://github.com/IAmTomShaw/f1-race-replay
 
 Enhanced with AI-powered analytics for nexairi.com
+Version: 1.0.1 - Fixed Streamlit Cloud compatibility
 """
 
 import streamlit as st

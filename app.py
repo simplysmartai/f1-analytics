@@ -25,14 +25,26 @@ from ui.components.sidebar import SidebarComponent
 from ui.pages import overview, driver_analysis, telemetry, ai_insights
 
 # Initialize configuration and logging
-settings.validate()
-logger.info("F1 Dashboard starting...")
+try:
+    settings.validate()
+    logger.info("F1 Dashboard starting...")
+except Exception as e:
+    print(f"CRITICAL: Configuration validation failed: {e}")
+    import traceback
+    traceback.print_exc()
 
 # Page configuration (use settings)
-st.set_page_config(**settings.PAGE_CONFIG)
+try:
+    st.set_page_config(**settings.PAGE_CONFIG)
+except Exception as e:
+    logger.error(f"Page config error: {e}")
 
 # Custom CSS for branding (use centralized styles)
-st.markdown(get_custom_css(), unsafe_allow_html=True)
+try:
+    st.markdown(get_custom_css(), unsafe_allow_html=True)
+except Exception as e:
+    logger.error(f"CSS error: {e}")
+    st.warning("CSS styling failed - continuing without styles")
 
 # Initialize FastF1 cache (done by service)
 try:
@@ -41,8 +53,7 @@ try:
     logger.info("FastF1 cache initialized successfully")
 except Exception as e:
     logger.error(f"Failed to initialize cache: {e}")
-    st.error("Failed to initialize data cache")
-    st.stop()
+    logger.warning("Continuing without cache...")
 
 # Header
 st.markdown('<h1 class="main-header">🏎️ F1 Analytics Dashboard</h1>', unsafe_allow_html=True)

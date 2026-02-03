@@ -1,0 +1,26 @@
+[theme]
+primaryColor = "#C80000"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F0F2F6"
+textColor = "#262730"
+font = "sans serif"
+
+[client]
+showErrorDetails = true
+toolbarMode = "developer"
+
+[logger]
+level = "debug"
+
+[server]
+maxUploadSize = 200
+enableXsrfProtection = true
+enableCORS = false
+
+[browser]
+gatherUsageStats = false
+
+# Disable caching issues in cloud
+[cache]
+maxEntries = 1000
+ttlSeconds = 3600

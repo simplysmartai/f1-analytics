@@ -111,8 +111,10 @@ if schedule is not None:
             st.stop()
         
         race_options = {
-            f"Round {row['RoundNumber']}: {row['EventName']} ({row['Country']})": row['RoundNumber']
+            f"Round {int(row['RoundNumber'])}: {row['EventName']} ({row['Country']})": int(row['RoundNumber'])
             for _, row in available_races.iterrows()
+            if int(row['RoundNumber']) > 0 and int(row['RoundNumber']) <= 24
+        }
         }
         
         # REORGANIZED: Grand Prix selector (moved down after Season)

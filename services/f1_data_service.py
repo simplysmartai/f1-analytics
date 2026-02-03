@@ -57,6 +57,9 @@ class F1DataService:
             today = pd.Timestamp.now()
             available = schedule[schedule['EventDate'] <= today]
             
+            # Filter out invalid round numbers (must be 1-24)
+            available = available[(available['RoundNumber'] > 0) & (available['RoundNumber'] <= 24)]
+            
             if available.empty:
                 logger.warning(f"No races available yet for {year}")
                 return available

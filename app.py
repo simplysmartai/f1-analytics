@@ -115,7 +115,6 @@ if schedule is not None:
             for _, row in available_races.iterrows()
             if int(row['RoundNumber']) > 0 and int(row['RoundNumber']) <= 24
         }
-        }
         
         # REORGANIZED: Grand Prix selector (moved down after Season)
         selected_race = st.selectbox("Grand Prix", options=list(race_options.keys()))

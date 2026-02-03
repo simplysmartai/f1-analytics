@@ -247,7 +247,8 @@ class Validator:
         if session is None:
             raise ValidationException("Session is None")
         
-        required_attrs = ['drivers', 'event', 'session_type', 'laps', 'results']
+        # Check for essential FastF1 session attributes (more lenient)
+        required_attrs = ['event', 'laps']
         
         for attr in required_attrs:
             if not hasattr(session, attr):

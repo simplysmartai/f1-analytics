@@ -29,7 +29,7 @@ class F1DataService:
     
     @st.cache_data(ttl=settings.CACHE_SCHEDULE_TTL)
     @monitor_performance("get_schedule")
-    def get_schedule(self, year: int) -> Optional[pd.DataFrame]:
+    def get_schedule(_self, year: int) -> Optional[pd.DataFrame]:
         """
         Fetch F1 schedule for given year.
         
@@ -72,7 +72,7 @@ class F1DataService:
     
     @st.cache_data(ttl=settings.CACHE_SESSION_TTL)
     @monitor_performance("get_session")
-    def get_session(self, year: int, round_num: int, session_type: str) -> Optional[Any]:
+    def get_session(_self, year: int, round_num: int, session_type: str) -> Optional[Any]:
         """
         Fetch F1 session data.
         
